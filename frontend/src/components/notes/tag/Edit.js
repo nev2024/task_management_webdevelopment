@@ -66,7 +66,7 @@ const Edit = ({user}) => {
       
       <Modal show={show} onHide={() => {setShow(!show);setError(null)}} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Tags</Modal.Title>
+          <Modal.Title>Ndrysho tags</Modal.Title>
         </Modal.Header> 
         <Modal.Body>
           <Form.Group className="mb-3">
@@ -79,7 +79,7 @@ const Edit = ({user}) => {
           {error && (<Alert variant={'danger'}>{error}</Alert>)}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleUpdate}>Save Changes</Button>
+          <Button variant="primary" onClick={handleUpdate}>Ruaj ndryshimet</Button>
         </Modal.Footer>
       </Modal>
     </>

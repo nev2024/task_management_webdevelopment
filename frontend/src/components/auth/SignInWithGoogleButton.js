@@ -14,14 +14,14 @@ const SignInWithGoogleButton = ({ persist, setPersist }) => {
     <>
       <button className="btn btn-light google-sign-in" onClick={() => setShow(!show)}>
         <FcGoogle className="me-2" size={17}/>
-        Sign in with Google
+      Hyr me Google
       </button>
 
       <Modal show={show} onHide={() => {setShow(!show)}} centered>
         <Modal.Body>
           <PersistLoginCheckbox persist={persist} setPersist={setPersist} className="mt-2 mb-3" bold />
           <PersistLoginAlert maxWidth="467px" marginAuto={false}/>
-          <Button className="float-end" variant="primary" onClick={handleLogin}>CONTINUE</Button>
+          <Button className="float-end" variant="primary" onClick={handleLogin}>Vazhdo</Button>
         </Modal.Body>
       </Modal>
     </>

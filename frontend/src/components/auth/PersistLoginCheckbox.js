@@ -5,7 +5,7 @@ const PersistLoginCheckbox = ({ persist, setPersist, className, bold }) => {
     <div className={`form-check ${className}`}>
       <label htmlFor="persist" className="form-check-label">
         <input id="persist" className="form-check-input" type="checkbox" onChange={() => { setPersist(prev => !prev) }} checked={persist}/>
-        {bold ? <strong>Keep me logged in</strong> : 'Keep me logged in'}
+        {bold ? <strong>Me mbaj te loguar</strong> : 'Me mbaj te loguar'}
       </label>
     </div>
   )

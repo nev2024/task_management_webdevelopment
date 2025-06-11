@@ -7,8 +7,8 @@ const PersistLoginAlert = ({ maxWidth, marginAuto }) => {
           <BsInfoCircleFill/><div className="mx-2"><strong>Info:</strong></div>
         </div>
         <ul>
-          <li>Choosing <strong>"Keep me logged in"</strong> reduces the number of the times you're asked Login on this device.</li>
-          <li>To keep your account secure, use this option only on <strong>Trusted Devices</strong>.</li>
+          <li>Duke zgjedhur <strong>"Me mbaj te loguar"</strong> zvogëlon numrin e herëve që ju kërkohet të identifikoheni në këtë pajisje.</li>
+          <li>Për ta mbajtur llogarinë tuaj të sigurt, përdoreni këtë opsion vetëm në <strong>Pajisjet e besuara</strong>.</li>
         </ul>
     </div>
   )

@@ -49,14 +49,14 @@ const VerifyEmail = () => {
               <div className="otp-box">
                 <div className="otp-icon"><MdOutlineMailLock className="fa"/></div>           
                 <h3>Forgot Your Password ?</h3>
-                <div className="description">Please enter your email address. We will send a one-time password (OTP) to this address for verification.</div>
+                <div className="description">Ju lutemi shkruani adresën tuaj të email-it. Ne do të dërgojmë një fjalëkalim njëpërdorimësh (OTP) në këtë adresë për verifikim.</div>
                 <form onSubmit={handleSubmit}>
                   <input className="inputs" type="email" ref={emailRef} placeholder='Email Address'/>
                   <button type="submit" className="otp-button btn btn-primary mb-1" disabled={isLoading}>{isLoading ? 'Sending...' : 'Next'}</button>
                 </form>
                 {error && <div className="error">{error}</div>}
               </div>
-              <div className="signup-prompt mt-2">Back to <Link to="/">Home Page</Link></div>
+              <div className="signup-prompt mt-2">Mbrapa ne <Link to="/">Faqen Fillestare</Link></div>
             </div>
           </div>
         </div>)}

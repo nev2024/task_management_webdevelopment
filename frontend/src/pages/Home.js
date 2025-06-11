@@ -35,8 +35,8 @@ const Home = () => {
                 {/* <div className="col-lg-3">
                     <div className="card my-2">
                         <div className="card-body">
-                            <h5 className="card-title">Account Management</h5>
-                            <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <h5 className="card-title">Menaxhimi i llogarise</h5>
+                            <p className="card-text">Me tekstin mbështetës më poshtë si një hyrje natyrale për përmbajtje shtesë.</p>
                             <Link to="/account" onClick={() => handleClick("/account")}><button className="btn btn-primary"><FaUserCog/></button></Link>
                         </div>
                     </div>
@@ -44,28 +44,28 @@ const Home = () => {
                 {accessRight && (<div className="col-lg-3">
                     <div className="card my-2">
                         <div className="card-body">
-                            <Link to="/user" onClick={() => handleClick("/user")}><button className="btn btn-outline-primary"><FaUserFriends/>&ensp;User Management</button></Link>
+                            <Link to="/user" onClick={() => handleClick("/user")}><button className="btn btn-outline-primary"><FaUserFriends/>&ensp;Menaxhimi i perdoruesve</button></Link>
                         </div>
                     </div>
                 </div>)}
                 <div className="col-lg-3">
                     <div className="card my-2">
                         <div className="card-body">
-                            <Link to="/task" onClick={() => handleClick("/task")}><button className="btn btn-outline-primary"><FaTasks/>&ensp;{accessRight ? "Task Management" : "Tasks"}</button></Link>
+                            <Link to="/task" onClick={() => handleClick("/task")}><button className="btn btn-outline-primary"><FaTasks/>&ensp;{accessRight ? "Menaxhimi i detyrave" : "Detyrat"}</button></Link>
                         </div>
                     </div>
                 </div>
                 <div className="col-lg-3">
                     <div className="card my-2">
                         <div className="card-body">
-                            <Link to="/note" onClick={() => handleClick("/note")}><button className="btn btn-outline-primary"><FaStickyNote/>&ensp;Note</button></Link>
+                            <Link to="/note" onClick={() => handleClick("/note")}><button className="btn btn-outline-primary"><FaStickyNote/>&ensp;Shenimet</button></Link>
                         </div>
                     </div>
                 </div>
                 <div className="col-lg-3">
                     <div className="card my-2">
                         <div className="card-body">
-                            <Link to="/sleep" onClick={() => handleClick("/sleep")}><button className="btn btn-outline-primary"><GiNightSleep/>&ensp;Record Sleep Hour</button></Link>
+                            <Link to="/sleep" onClick={() => handleClick("/sleep")}><button className="btn btn-outline-primary"><GiNightSleep/>&ensp;Rregjistro orarin e punes</button></Link>
                         </div>
                     </div>
                 </div>

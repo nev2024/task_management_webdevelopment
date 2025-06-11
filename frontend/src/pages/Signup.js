@@ -33,15 +33,15 @@ const Signup = () => {
       {!mailSent && (
         <>
           <form className="signup" onSubmit={handleSubmit}>
-            <h3 className="text-center mb-4">Sign Up</h3>
+            <h3 className="text-center mb-4">Regjistrohu</h3>
             
-            <label>Username:</label>
+            <label>Emri i përdoruesit:</label>
             <input className="inputs" type="text" ref={nameRef} />
 
-            <label>Email Address:</label>
+            <label>Adresa e email-it:</label>
             <input className="inputs" type="email" ref={emailRef}/>
 
-            <label>Password:</label>
+            <label>Fjalekalimi:</label>
             <div className="d-flex">
               <input className="inputs" type="password" ref={passwordRef} autoComplete="off"/>
               <button className="btn mb-2" onClick={handleShowPassword}>{changeIcon ? <FaEyeSlash/> : <FaEye/>}</button>
@@ -51,7 +51,7 @@ const Signup = () => {
 
             <button className="w-100 mt-3" disabled={isLoading}>Sign Up</button>
 
-            <div className="signup-prompt mt-3">Already have an account ? <Link to="/login">Login</Link></div>
+            <div className="signup-prompt mt-3">Ke tashme nje llogari ? <Link to="/login">Login</Link></div>
             {error && 
               (<div className="error">{error}
                 {error==="Password not strong enough" && 
@@ -75,9 +75,9 @@ const Signup = () => {
     {mailSent && (
       <div className="verify center shadow">
         <div className="icon"><TbMailForward className="fa"/></div>
-        <div className="fs-3 fw-semibold">Verify your email</div>
-        <div className="description">We've sent you a link in your email to verify your email address and activate your account. Just click the link to complete the signup process.</div>
-        <small><div className="fw-semibold" style={{color: '#348df2'}}>The link in the email will expire in 15 minutes.</div></small>
+        <div className="fs-3 fw-semibold">Verifiko emailin</div>
+        <div className="description">Ju kemi dërguar një lidhje në emailin tuaj për të verifikuar adresën tuaj të emailit dhe për të aktivizuar llogarinë tuaj. Thjesht klikoni lidhjen për të përfunduar procesin e regjistrimit.</div>
+        <small><div className="fw-semibold" style={{color: '#348df2'}}>Lidhja në email do të skadojë pas 15 minutash.</div></small>
       </div>
     )}
    </>

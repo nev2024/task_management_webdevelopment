@@ -15,7 +15,7 @@ const Delete = ({ task }) => {
 
   const handleDelete = async () => {
     if(!auth) {
-      setError('You must be logged in') 
+      setError('Duhet te jesh i loguar') 
       setShow(!show)
       return
     }
@@ -33,20 +33,20 @@ const Delete = ({ task }) => {
 
   return (
     <>
-      <button className="btn btn-outlined text-muted taskbtn" onClick={() => setShow(!show)}> <BsFillTrashFill className="fs-5"/><small>&ensp;DELETE</small></button>
+      <button className="btn btn-outlined text-muted taskbtn" onClick={() => setShow(!show)}> <BsFillTrashFill className="fs-5"/><small>&ensp;Fshi</small></button>
 
       <Modal show={show} onHide={() => {setShow(!show);setError(null)}} centered>
         <Modal.Header closeButton>
-          {!error && (<Modal.Title className="d-inline-flex align-items-center"><GoAlert/>&nbsp;Warning</Modal.Title>)}
-          {error && (<Modal.Title>Error</Modal.Title>)}
+          {!error && (<Modal.Title className="d-inline-flex align-items-center"><GoAlert/>&nbsp;Kujdes!</Modal.Title>)}
+          {error && (<Modal.Title>Gabim</Modal.Title>)}
         </Modal.Header> 
         <Modal.Body>
-          {!error && (<>Are you sure, delete task: <strong>{task.title}</strong> ?</>)}
+          {!error && (<>A je i sigurt per ta fshire <strong>{task.title}</strong> ?</>)}
           {error && (<div className="alert alert-danger" role="alert">{error}</div>)}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={handleDelete}>Delete</Button>
-          <Button variant="secondary" onClick={() => setShow(!show)}>Cancel</Button>
+          <Button variant="danger" onClick={handleDelete}>Fshi</Button>
+          <Button variant="secondary" onClick={() => setShow(!show)}>Anullo</Button>
         </Modal.Footer>
       </Modal>
     </>

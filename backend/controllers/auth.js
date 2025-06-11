@@ -17,18 +17,29 @@ const {
 
 const verificationStatus = {};
 
+const qs = require("querystring"); // Add at top
+
 exports.login = async (req, res, next) => {
   try {
     const { email, password, persist, token } = req.body;
+
+    // Verify reCAPTCHA token
     const reCaptchaRe = await axios.post(
-      `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
+      "https://www.google.com/recaptcha/api/siteverify",
+      qs.stringify({
+        secret: process.env.RECAPTCHA_SECRET_KEY,
+        response: token,
+      }),
       {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
       }
     );
 
-    if (!reCaptchaRe.data.success || reCaptchaRe.data.score <= 0.5)
-      throw new CustomError("Google ReCaptcha Validation Failure", 403);
+    if (!reCaptchaRe.data.success || reCaptchaRe.data.score <= 0.5) {
+      return res
+        .status(403)
+        .json({ error: "Failed Google reCAPTCHA validation" });
+    }
 
     const user = await User.login(email, password);
 
@@ -36,7 +47,7 @@ exports.login = async (req, res, next) => {
       userInfo: {
         _id: user._id,
         name: user.name,
-        email,
+        email: user.email,
         roles: user.roles,
       },
     });
@@ -45,14 +56,15 @@ exports.login = async (req, res, next) => {
       const refreshToken = generateRefreshToken(user._id);
       res.cookie("jwt", refreshToken, {
         httpOnly: true,
-        sameSite: "Lax",
         secure: true,
-        maxAge: 7 * 24 * 60 * 60 * 1000,
+        sameSite: "Lax",
+        maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
       });
     }
 
     res.status(200).json(accessToken);
   } catch (error) {
+    console.error("Login error:", error);
     next(error);
   }
 };

@@ -60,14 +60,14 @@ const Add = () => {
         <span className="d-inline-flex align-items-center"><BsFillPersonFill className="fs-4"/>&ensp;{targetUser?.userRoles}</span>
       </div>)}
 
-      <h1 className="my-3">New Note</h1>
+      <h1 className="my-3">Shenim i ri</h1>
 
       <Form onSubmit={handleSubmit}>
         <Stack gap={4}>
           <Row>
             <Col>
               <Form.Group controlId="title">
-                <Form.Label>Title</Form.Label>
+                <Form.Label>Titulli</Form.Label>
                 <Form.Control ref={titleRef} />
               </Form.Group>
             </Col>
@@ -78,20 +78,20 @@ const Add = () => {
                   isMulti 
                   onChange={setTag}
                   placeholder="Add Tag..."
-                  noOptionsMessage={() => "Nothing added!"}
+                  noOptionsMessage={() => "Asgje nuk u shtua!"}
                 />
               </Form.Group>
             </Col>
           </Row>
           <Form.Group controlId="markdown">
-            <Form.Label>Body</Form.Label>
+            <Form.Label>Pershkrimi</Form.Label>
             <Form.Control as="textarea" ref={textRef} rows={15}/>
           </Form.Group>
           {error && (<Alert variant={'danger'}>{error}</Alert>)}
           <Stack direction="horizontal" gap={2} className="justify-content-end">
-            <Button type="submit" variant="primary">Save</Button>
+            <Button type="submit" variant="primary">Ruaj</Button>
             <Link to="/note">
-              <Button type="button" variant="outline-secondary">Cancel</Button>
+              <Button type="button" variant="outline-secondary">Anullo</Button>
             </Link>
           </Stack>
         </Stack>

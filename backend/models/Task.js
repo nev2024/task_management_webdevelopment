@@ -22,7 +22,7 @@ const taskSchema = new mongoose.Schema(
     status: {
       type: String,
       required: true,
-      default: "Pending",
+      default: "Duke u punuar",
     },
   },
   { timestamps: true }

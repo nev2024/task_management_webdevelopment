@@ -67,7 +67,7 @@ const VerifyOTP = ({ email, setOTPVerify }) => {
           <div className="otp-box">
             <div className="otp-icon"><MdOutlineSecurity className="fa"/></div>           
             <h3>OTP Valification</h3>
-            <div className="description">A 6-digit OTP (One-Time Password) has been sent to {email}. Kindly check your email and enter the OTP code below.</div>
+            <div className="description">Një fjalëkalim OTP (Fjalëkalim njëpërdorimësh) me 6 shifra është dërguar te {email}. Ju lutemi kontrolloni email-in tuaj dhe futni kodin OTP më poshtë.</div>
             <form onSubmit={handleSubmit}>
               <div className="otp-inputs gap-2 my-4">
                 {otp.map((data, index) => (
@@ -86,7 +86,7 @@ const VerifyOTP = ({ email, setOTPVerify }) => {
             </form>
             {error && <div className="error">{error}</div>}
           </div>
-          <div className="signup-prompt mt-2">Back to <Link to="/">Home Page</Link></div>
+          <div className="signup-prompt mt-2">Mbrapa ne <Link to="/">Faqen Fillestare</Link></div>
         </div>
       </div>
     </div>

@@ -1,81 +1,66 @@
-import { AiOutlineSetting, AiOutlineUsergroupAdd } from "react-icons/ai"
-import { BsCalendarWeek } from 'react-icons/bs'
-import { BiTimer } from 'react-icons/bi'
-import { FiMoreHorizontal } from "react-icons/fi"
-import { HiLink, HiOutlineStar } from "react-icons/hi"
-import { MdAdminPanelSettings } from "react-icons/md"
-import { SiStatuspal } from "react-icons/si"
-import { Link } from 'react-router-dom'
-import { ROLES } from '../../config/roles'
-import { useAuthContext } from '../../context/auth'
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-import Delete from './Delete'
-import Edit from './Edit'
+import Edit from "./Edit";
+import Delete from "./Delete";
+import { useTasksContext } from "../../context/task";
+import { useAuthContext } from "../../context/auth";
+import { ROLES } from "../../config/roles";
+import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { FaUserCheck, FaTrashAlt, FaEdit } from "react-icons/fa";
 
-const Index = ({ tasks }) => {
-  const { auth } = useAuthContext()
-  const admin = auth.roles.includes(ROLES.Admin) || auth.roles.includes(ROLES.Root)
+const Index = () => {
+  const { tasks } = useTasksContext();
+  const { auth } = useAuthContext();
+
+  const permitDeleteTask = (task) => {
+    const isAdmin = auth.roles.includes(ROLES.Admin);
+    const isRoot = auth.roles.includes(ROLES.Root);
+    const isOwner =
+      task.createdBy?._id === auth._id || task.createdBy === auth._id;
+    return isRoot || (isAdmin && isOwner);
+  };
+
+  if (!Array.isArray(tasks)) {
+    return (
+      <p className="text-danger mt-3">
+        Gabim në marrjen e të dhënave të detyrave.
+      </p>
+    );
+  }
 
   return (
-    <>
-      {tasks.map(task => (<div className="card mt-2 mb-3 border-5 pt-2 pb-0 px-3" key={task._id}>
-        <div className="card-body">
-            <div className="row">
-                <div className="col-12 mb-2">
-                    <h4 className="card-title"><b>{task.title}</b></h4>
-                </div>
-                <div className="col">
-                  <h6 className="card-subtitle mb-2 text-muted">
-                    <p className="card-text text-muted small">
-                      <HiOutlineStar className="mr-1 fs-5"/>
-                      <span className="vl"></span>
-                      <MdAdminPanelSettings className="fs-4"/><span className="font-weight-bold">&nbsp;{task.createdBy.name}</span>
-                      <span className="vl"></span>
-                      <SiStatuspal className="fs-6"/><small>&ensp;{task.status}</small>
-                      <span className="vl"></span>
-                      <BsCalendarWeek className="fs-6"/><small>&ensp;{new Date(task.createdAt).toLocaleDateString('en-GB')}</small>
-                      <span className="vl"></span>
-                      <BiTimer className="fs-5"/><small>&ensp;{formatDistanceToNow(new Date(task.createdAt), { addSuffix: true })}</small>
-                      <span className="vl"></span>
-                      <BiTimer className="fs-5"/><small>&ensp;{formatDistanceToNow(new Date(task.updatedAt), { addSuffix: true })}</small>
-                    </p>
-                  </h6>
-                </div>
+    <div className="container mt-4">
+      {tasks.map((task, index) => (
+        <div key={task._id} className="card mb-4 shadow-sm border-0">
+          <div className="card-body">
+            <h5 className="card-title fw-bold">{task.title}</h5>
+            <div className="mb-2 text-muted small d-flex flex-wrap gap-3">
+              <span>
+                📌 <strong>{task.status}</strong>
+              </span>
+              <span>📅 {new Date(task.createdAt).toLocaleDateString()}</span>
+              <span>
+                ⏱{" "}
+                {formatDistanceToNow(new Date(task.createdAt), {
+                  addSuffix: true,
+                })}
+              </span>
+              <span>
+                🕒{" "}
+                {formatDistanceToNow(new Date(task.updatedAt), {
+                  addSuffix: true,
+                })}
+              </span>
             </div>
-            <div className="col">
-              <p className="card-text">{task.description}</p>
-            </div>
-        </div>
-        {admin && (
-          <div className="card-footer bg-white px-0">
-            <div className="row">
-              <div className="col-md-auto">
-                <Link className="btn btn-outlined text-muted taskbtn" to="/assign" state={{id: task._id, title: task.title, createdBy: task.createdBy}}>
-                  <AiOutlineUsergroupAdd className="fs-4"/>
-                  <small>&ensp;ASSIGN</small>
-                </Link>
-                <Edit task={task}/>
-                <Delete task={task}/>
-                {/* <button className="btn btn-outlined text-muted taskbtn">
-                  <AiOutlineSetting className="fs-5"/>
-                  <small>&ensp;SETTINGS</small>
-                </button>
-                <button className="btn btn-outlined text-muted taskbtn">
-                  <HiLink className="plus fs-5"/>
-                  <small>&ensp;PROGRAM LINK</small>
-                </button>
-                <button className="btn btn-outlined text-muted taskbtn">
-                  <FiMoreHorizontal className="more mr-2 fs-5"/>
-                  <small>&ensp;MORE</small>
-                </button>
-                <span className="vl"></span> */}
-              </div>
+            <p className="card-text">{task.description}</p>
+            <hr />
+            <div className="d-flex gap-3">
+              <Edit task={task} />
+              {permitDeleteTask(task) && <Delete task={task} />}
             </div>
           </div>
-        )}
-      </div>))}
-    </>
-  )
-}
+        </div>
+      ))}
+    </div>
+  );
+};
 
-export default Index
+export default Index;

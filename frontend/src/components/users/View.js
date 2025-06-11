@@ -20,12 +20,12 @@ const View = ({ user }) => {
 
       <Modal show={show} onHide={() => {setShow(!show)}} centered>
         <Modal.Header closeButton>
-          <Modal.Title>View Record</Modal.Title>
+          <Modal.Title>Shiko regjistrimet</Modal.Title>
         </Modal.Header> 
         <Modal.Body>
-          <Link to="/task" onClick={ handleClick }><button className="btn btn-outline-primary mb-3"><FaTasks/>&ensp;Task Management</button></Link><br/>
-          <Link to="/note" onClick={ handleClick }><button className="btn btn-outline-primary mb-3"><FaStickyNote/>&ensp;Note Management</button></Link><br/>
-          <Link to="/sleep" onClick={ handleClick }><button className="btn btn-outline-primary"><GiNightSleep/>&ensp;Sleep Hours Management</button></Link>
+          <Link to="/task" onClick={ handleClick }><button className="btn btn-outline-primary mb-3"><FaTasks/>&ensp;Detyrat</button></Link><br/>
+          <Link to="/note" onClick={ handleClick }><button className="btn btn-outline-primary mb-3"><FaStickyNote/>&ensp;Shenimet</button></Link><br/>
+          <Link to="/sleep" onClick={ handleClick }><button className="btn btn-outline-primary"><GiNightSleep/>&ensp;Oret e punes</button></Link>
         </Modal.Body>
       </Modal>
     </>

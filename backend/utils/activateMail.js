@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-// Ensure environment variables are loaded
+
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASS = process.env.ADMIN_PASS;
 
@@ -15,9 +15,9 @@ const activateMailAccount = async (to, url, text) => {
     });
 
     const mailOptions = {
-      from: `"Task Manager Support" <${ADMIN_EMAIL}>`,
+      from: `"Sistemi i Menaxhimit" <${ADMIN_EMAIL}>`,
       to: to,
-      subject: "✅ Verify Your Email - Task Manager",
+      subject: "✅ Verifiko emailin - Sistemi i Menaxhimit",
       html: `<!DOCTYPE html>
         <html lang="en">
         <head>
@@ -27,13 +27,13 @@ const activateMailAccount = async (to, url, text) => {
         </head>
         <body style="font-family: Verdana; background-color: #f4f4f4; color: #333; padding: 20px;">
           <div style="max-width: 600px; margin: auto; background-color: #fff; padding: 20px; border-radius: 8px;">
-            <h2 style="color: #0184ff;">Activate Your Account</h2>
-            <p>Welcome to Task Manager! Thank you for signing up.</p>
-            <p>Click the button below to verify your email address and complete the signup process.</p>
+            <h2 style="color: #0184ff;">Aktivizo llogarine</h2>
+            <p>Mirë se vini në Sistemin e Menaxhimit! Faleminderit që u regjistruat.</p>
+            <p>Klikoni butonin më poshtë për të verifikuar adresën tuaj të email-it dhe për të përfunduar procesin e regjistrimit.</p>
             <a href="${url}" target="_blank" style="display: inline-block; background-color: #0184ff; color: #fff; padding: 12px 24px; border-radius: 5px; text-decoration: none; margin-top: 10px;">
               ${text}
             </a>
-            <p style="margin-top: 20px;">If the button doesn’t work, copy and paste this link into your browser:</p>
+            <p style="margin-top: 20px;">Nëse butoni nuk funksionon, kopjoni dhe ngjisni këtë lidhje në browserin tuaj:</p>
             <div style="word-break: break-all; color: #555;">${url}</div>
             <p style="margin-top: 30px;">This link will expire in 15 minutes.</p>
           </div>

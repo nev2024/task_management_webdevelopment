@@ -42,12 +42,12 @@ const Login = () => {
 
         <div className="d-flex justify-content-between">
           <PersistLoginCheckbox persist={persist} setPersist={setPersist} />
-          <label className="form-check-label"><Link to="/recover-password">Forgot Password ?</Link></label>
+          <label className="form-check-label"><Link to="/recover-password">Ke harruar passwordin ?</Link></label>
         </div>
 
-        <button className="w-100 mt-3" disabled={isLoading}>Log In</button>
+        <button className="w-100 mt-3" disabled={isLoading}>Hyr</button>
 
-        <div className="signup-prompt mt-3">Create an account ? <Link to="/signup">Signup</Link></div>
+        <div className="signup-prompt mt-3">Krijo nje llogari ? <Link to="/signup">Regjistrohu</Link></div>
         {error && <div className="error">{error}</div>}
       </form>
 

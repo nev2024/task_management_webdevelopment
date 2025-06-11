@@ -28,7 +28,7 @@ const Edit = ({ task }) => {
     })
     
     if (!auth) {
-      setError('You must be logged in')
+      setError('Duhet te jesh i loguar')
       return
     }
 
@@ -51,33 +51,33 @@ const Edit = ({ task }) => {
     
   return (
     <>
-      <button className="btn btn-outlined text-muted taskbtn" onClick={() => setShow(!show)}><BsPencilSquare className="fs-5"/><small>&ensp;EDIT</small></button>
+      <button className="btn btn-outlined text-muted taskbtn" onClick={() => setShow(!show)}><BsPencilSquare className="fs-5"/><small>&ensp;Modifiko</small></button>
 
       <Modal show={show} onHide={() => {setShow(!show);setError(null)}} centered>
         <Modal.Header closeButton>
-          <Modal.Title>Edit Tasks</Modal.Title>
+          <Modal.Title>Modifiko Detyrat</Modal.Title>
         </Modal.Header> 
         <Modal.Body>
           <Form.Group className="mb-3">
-            <Form.Label>Title:</Form.Label>
+            <Form.Label>Titulli:</Form.Label>
             <Form.Control type="text" defaultValue={task.title} ref={titleRef}/>
           </Form.Group>
           <Form.Group className="mb-3">
-            <Form.Label>Description:</Form.Label>
+            <Form.Label>Pershkrimi: </Form.Label>
             <Form.Control as="textarea" rows={3} defaultValue={task.description} ref={descriptionRef}/>
           </Form.Group>
           <Form.Group className="mb-3">
             <Form.Label>Status:</Form.Label>
             <select className="form-select" aria-label="select status" defaultValue={task.status} ref={statusRef}>
-              <option value="Pending">Pending</option>
-              <option value="Complete">Complete</option>
-              <option value="Expired">Expired</option>
+              <option value="Duke u punuar">Duke u punuar</option>
+              <option value="Perfunduar">Perfunduar</option>
+              <option value="Mbyllur">Mbyllur</option>
             </select>
           </Form.Group>
           {error && (<Alert variant={'danger'}>{error}</Alert>)}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={handleUpdate}>Save Changes</Button>
+          <Button variant="primary" onClick={handleUpdate}>Ruaj ndryshimet</Button>
         </Modal.Footer>
       </Modal>
     </>

@@ -30,9 +30,9 @@ const RestPassword = ({ email }) => {
     
     try {
       validatePasswordField(passwordRef, 'Password');
-      validatePasswordField(confirmPasswordRef, 'Confirm Password')
+      validatePasswordField(confirmPasswordRef, 'Konfirmo Passwordin')
 
-      if(passwordRef.current.value !== confirmPasswordRef.current.value) throw Error("Passwords don't match")
+      if(passwordRef.current.value !== confirmPasswordRef.current.value) throw Error("Passwordet nuk perputhen")
       await axiosPublic.post('/api/auth/rest-password', { email, password: passwordRef.current.value })
       setIsLoading(false)
       setError(null)
@@ -68,15 +68,15 @@ const RestPassword = ({ email }) => {
           {error &&  (<div className="error">{error} 
             {error==="Password not strong enough" && 
                 (<ul>
-                  <li>At least 8 character</li>
-                  <li>At least 1 lowercase</li>
-                  <li>At least 1 uppercase</li>
-                  <li>At least 1 numbers</li>
-                  <li>At least 1 symbols</li>
+                  <li>Te pakten 8 karaktere</li>
+                  <li>Te pakten 1 me shkronje te vogel</li>
+                  <li>Te pakten 1 me shkronje te vogel</li>
+                  <li>Te pakten 1 numer</li>
+                  <li>Te pakten 1 simbol</li>
                 </ul>)}
             </div>)}
         </div>
-        <div className="signup-prompt mt-2">Back to <Link to="/">Home Page</Link></div>
+        <div className="signup-prompt mt-2">Shko ne <Link to="/">Faqen Fillestare</Link></div>
       </div>
     </div>
   </div>

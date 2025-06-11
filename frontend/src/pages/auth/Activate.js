@@ -66,10 +66,10 @@ const Activate = () => {
         <div className="icon">
           <VscError className="fa"/>
         </div>
-        <div className="fs-3 fw-semibold">Link Expired</div>
-        <div className="description">The link provided has expired, please click the button below to signup for a new account.</div>
+        <div className="fs-3 fw-semibold">Link i skaduar</div>
+        <div className="description">Lidhja e dhënë ka skaduar, ju lutemi klikoni butonin më poshtë për t'u regjistruar për një llogari të re.</div>
         <div className="dismiss-btn mt-3">
-          <Link to="/signup"><button><AiOutlineReload />&ensp;Try Again</button></Link>
+          <Link to="/signup"><button><AiOutlineReload />&ensp;Provo perseri!</button></Link>
         </div>
       </div>)}
 
@@ -77,10 +77,10 @@ const Activate = () => {
         <div className="icon">
           <VscError className="fa"/>
         </div>
-        <div className="fs-3 fw-semibold">Email already in use</div>
-        <div className="description">{email} already in use, please choose another email.</div>
+        <div className="fs-3 fw-semibold">Email tashmë në përdorim</div>
+        <div className="description">{email} tashmë në përdorim, ju lutemi zgjidhni një email tjetër.</div>
         <div className="dismiss-btn mt-3">
-          <Link to="/signup"><button><AiOutlineReload />&ensp;Try Again</button></Link>
+          <Link to="/signup"><button><AiOutlineReload />&ensp;Provo perseri</button></Link>
         </div>
       </div>)}
 
@@ -88,8 +88,8 @@ const Activate = () => {
         <div className="icon">
           <MdOutlineVerifiedUser className="fa"/>
         </div>
-        <div className="fs-3 fw-semibold">Account Activated</div>
-        <div className="description">Your email has been confirmed, check dashboard for more details.</div>
+        <div className="fs-3 fw-semibold">Llogaria u aktivizua</div>
+        <div className="description">Email-i juaj është konfirmuar, kontrolloni panelin për më shumë detaje.</div>
         <div className="dismiss-btn mt-3">
           <Link to="/"><button><MdSpaceDashboard />&ensp;DASHBOARD</button></Link>
         </div>

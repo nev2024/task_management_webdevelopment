@@ -76,14 +76,14 @@ const User = () => {
             <table className="table table-hover mt-2">
               <thead className="table-light">
                 <tr>
-                  <th scope="col">No.</th>
-                  <th scope="col">Name</th>
+                  <th scope="col">Nr.</th>
+                  <th scope="col">Emri</th>
                   <th scope="col">Email</th>
-                  <th scope="col">Roles</th>
-                  <th scope="col">Account Status</th>
-                  <th scope="col">Active Status</th>
-                  <th scope="col">Active Date</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Roli</th>
+                  <th scope="col">Statusi i llogarise</th>
+                  <th scope="col">Statusi aktiv</th>
+                  <th scope="col">Data nga kur eshte aktive</th>
+                  <th scope="col">Veprimi</th>
                 </tr>
               </thead>
               <tbody>
@@ -94,9 +94,9 @@ const User = () => {
         </>
       )}
 
-      {!filteredNames?.length && query && <div>No matching results found...</div>}
+      {!filteredNames?.length && query && <div>Nuk u gjet asnje rezultat i ngjashem...</div>}
 
-      {notFound && !query && !users?.length && (<div>No Record Found...</div>)}
+      {notFound && !query && !users?.length && (<div>Nuk u gjet asnje regjistrim.</div>)}
     </>
   )
 }
