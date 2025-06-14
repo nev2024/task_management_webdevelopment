@@ -1,5 +1,4 @@
-<p align="center">
-<img src="public/banner.png" alt="Logo" width="250" height="250" justify-items="center"/>
+
 <h3 align="center">👩🏻‍💻 User Management System 🛡️</h3>
 </p>
 ---
